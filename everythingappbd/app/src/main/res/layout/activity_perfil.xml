@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Foto de perfil -->
+    <ImageView
+        android:id="@+id/imagePerfil"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_gravity="center"
+        android:contentDescription="Foto de perfil"
+        />
+
+    <!-- Nombre -->
+    <TextView
+        android:layout_gravity="center"
+        android:id="@+id/textNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textSize="20sp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:textStyle="bold"/>
+
+    <!-- Correo -->
+    <TextView
+        android:layout_gravity="center"
+        android:id="@+id/textCorreo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Correo"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_gravity="center"
+        android:id="@+id/textContrasena"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contraseña"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/textCorreo"
+        android:layout_marginTop="8dp"
+        />
+
+    <!-- Teléfono -->
+    <TextView
+        android:layout_gravity="center"
+        android:id="@+id/textTelefono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Teléfono"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"/>
+
+    <!-- Botón de Logout -->
+    <Button
+        android:layout_gravity="center"
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cerrar Sesión"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"/>
+
+</LinearLayout>
