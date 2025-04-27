@@ -12,4 +12,9 @@
         android:id="@+id/nav_favoritos"
         android:icon="@drawable/baseline_discount_24"
         android:title="Favoritos" />
+
+    <item
+        android:id="@+id/navigation_search"
+        android:icon="@drawable/ic_search"
+        android:title="Buscar" />
 </menu>

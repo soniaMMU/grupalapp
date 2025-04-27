@@ -7,32 +7,36 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private BottomNavigationView bottomNavigationView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        bottomNavigationView = findViewById(R.id.bottomNavigationView);
-
-        // Por defecto cargamos el fragment Tiendas
-        loadFragment(new TiendasFragment());
-
-        // Usamos 'setOnItemSelectedListener' con 'if-else' en lugar de 'switch'
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnItemSelectedListener(item -> {
-            Fragment selectedFragment = null;
-
-            if (item.getItemId() == R.id.nav_tienda) {
-                selectedFragment = new TiendasFragment();
-            } else if (item.getItemId() == R.id.nav_agregar_tienda) {
-                selectedFragment = new AgregarTiendaFragment();
-            } else if (item.getItemId() == R.id.nav_favoritos) {
-                selectedFragment = new FavoritosFragment();
+            int itemId = item.getItemId();
+            if (itemId == R.id.nav_tienda) {
+                getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragmentContainer, new TiendaFragment())
+                    .commit();
+                return true;
+            } else if (itemId == R.id.nav_agregar_tienda) {
+                getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragmentContainer, new AgregarTiendaFragment())
+                    .commit();
+                return true;
+            } else if (itemId == R.id.nav_favoritos) {
+                getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragmentContainer, new FavoritosFragment())
+                    .commit();
+                return true;
+            } else if (itemId == R.id.navigation_search) {
+                getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragmentContainer, new SearchFragment())
+                    .commit();
+                return true;
             }
-
-            loadFragment(selectedFragment);
-            return true;
+            return false;
         });
     }
 

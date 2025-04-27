@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/all_categories_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Todas las Categorías"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <RecyclerView
+        android:id="@+id/categories_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/price_filter_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Filtrar por precio"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold" />
+
+    <SeekBar
+        android:id="@+id/price_filter_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="1000"
+        android:layout_marginTop="8dp" />
+</LinearLayout>
