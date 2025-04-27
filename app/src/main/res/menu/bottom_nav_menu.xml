@@ -12,4 +12,12 @@
         android:id="@+id/nav_favoritos"
         android:icon="@drawable/baseline_discount_24"
         android:title="Favoritos" />
+    <item
+        android:id="@+id/nav_chats"
+        android:icon="@drawable/ic_chat"
+        android:title="Chats de compras" />
+    <item
+        android:id="@+id/nav_recomendaciones"
+        android:icon="@drawable/ic_star"
+        android:title="Recomendaciones" />
 </menu>

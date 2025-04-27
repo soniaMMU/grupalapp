@@ -29,6 +29,10 @@ public class HomeActivity extends AppCompatActivity {
                 selectedFragment = new AgregarTiendaFragment();
             } else if (item.getItemId() == R.id.nav_favoritos) {
                 selectedFragment = new FavoritosFragment();
+            } else if (item.getItemId() == R.id.nav_chats) { // Nueva sección
+                selectedFragment = new ChatsFragment();
+            } else if (item.getItemId() == R.id.nav_recomendaciones) {
+                selectedFragment = new RecomendacionesFragment();
             }
 
             loadFragment(selectedFragment);

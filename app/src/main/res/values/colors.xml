@@ -3,4 +3,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="purple_500">#6C3BAA</color>
+
+    <!-- Paleta de colores -->
+    <color name="naranjaBlanco">#FEF3E2</color>
+    <color name="amarilloClaro">#FCF596</color>
+    <color name="naranjaPalido">#FBD288</color>
+    <color name="naranjaMelon">#FF9C73</color>
+    <color name="naranjaRojo">#FF4545</color>
+    <color name="naranjaVivo">#FAB12F</color>
+    <color name="naranja">#FA812F</color>
+    <color name="naranjaFuego">#FA4032</color>
+    <color name="cafe">#343131</color>
 </resources>
