@@ -6,49 +6,42 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import android.widget.BaseAdapter;
-import java.util.ArrayList;
+import androidx.recyclerview.widget.RecyclerView;
+import java.util.List;
 
-public class MessageAdapter extends BaseAdapter {
-
+public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageViewHolder> {
     private Context context;
-    private ArrayList<Message> messages;
+    private List<Message> messages;
 
-    public MessageAdapter(Context context, ArrayList<Message> messages) {
+    public MessageAdapter(Context context, List<Message> messages) {
         this.context = context;
         this.messages = messages;
     }
 
+    @NonNull
     @Override
-    public int getCount() {
+    public MessageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.message_bubble_user, parent, false);
+        return new MessageViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull MessageViewHolder holder, int position) {
+        Message message = messages.get(position);
+        holder.textViewMessage.setText(message.getText());
+    }
+
+    @Override
+    public int getItemCount() {
         return messages.size();
     }
 
-    @Override
-    public Object getItem(int position) {
-        return messages.get(position);
-    }
+    static class MessageViewHolder extends RecyclerView.ViewHolder {
+        TextView textViewMessage;
 
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        Message message = messages.get(position);
-
-        if (convertView == null) {
-            if ("usuario3".equals(message.getSender())) {
-                convertView = LayoutInflater.from(context).inflate(R.layout.message_bubble_user, parent, false);
-            } else {
-                convertView = LayoutInflater.from(context).inflate(R.layout.message_bubble_other, parent, false);
-            }
+        public MessageViewHolder(@NonNull View itemView) {
+            super(itemView);
+            textViewMessage = itemView.findViewById(R.id.textViewMessage);
         }
-
-        TextView textView = convertView.findViewById(R.id.textViewMessage);
-        textView.setText(message.getText());
-
-        return convertView;
     }
 }
