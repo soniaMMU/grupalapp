@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "220425975001",
+    "firebase_url": "https://everythingappbd-default-rtdb.firebaseio.com",
+    "project_id": "everythingappbd",
+    "storage_bucket": "everythingappbd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:220425975001:android:d9816dd0a273e794f83ac8",
+        "android_client_info": {
+          "package_name": "com.cauquitas.everythingappbd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "220425975001-i8130mi8gloae02r0ji4p2o3tj7rl01b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKcF1p24J3hXytfnKQoJGJr5eOjCsDdpY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "220425975001-i8130mi8gloae02r0ji4p2o3tj7rl01b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:220425975001:android:a27e0a0854918df8f83ac8",
+        "android_client_info": {
+          "package_name": "com.cauquitas.eveythinapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "220425975001-i8130mi8gloae02r0ji4p2o3tj7rl01b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKcF1p24J3hXytfnKQoJGJr5eOjCsDdpY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "220425975001-i8130mi8gloae02r0ji4p2o3tj7rl01b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

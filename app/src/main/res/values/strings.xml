@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">everythingappbd</string>
+    <string name="default_web_client_id">TU_CLIENTE_WEB_ID_GOOGLE</string>
+</resources>
