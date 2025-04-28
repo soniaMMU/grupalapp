@@ -19,6 +19,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ChildEventListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ChatDetailFragment extends Fragment {
     private RecyclerView recyclerView;
@@ -102,13 +104,12 @@ public class ChatDetailFragment extends Fragment {
                 mensajesRef.addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                        // Cada vez que se agrega un nuevo mensaje
-                        String sender = snapshot.child("de").getValue(String.class);
-                        String text = snapshot.child("mensaje").getValue(String.class);
+                        String de = snapshot.child("de").getValue(String.class);
+                        String mensaje = snapshot.child("mensaje").getValue(String.class);
                         String timestamp = snapshot.child("timestamp").getValue(String.class);
 
-                        if (sender != null && text != null && timestamp != null) {
-                            messageList.add(new Message(sender, text, timestamp));
+                        if (de != null && mensaje != null && timestamp != null) {
+                            messageList.add(new Message(de, mensaje, timestamp));
                             adapter.notifyDataSetChanged();
                             recyclerView.scrollToPosition(messageList.size() - 1); // Desplazar al último mensaje
                         }
@@ -143,22 +144,35 @@ public class ChatDetailFragment extends Fragment {
     private void enviarMensaje(String chatId, String mensaje, Button botonPresionado, Button botonDeshabilitar) {
         DatabaseReference mensajesRef = FirebaseDatabase.getInstance().getReference("chats").child(chatId).child("mensajes");
 
-        // Crear un nuevo mensaje
-        String mensajeId = mensajesRef.push().getKey();
-        if (mensajeId != null) {
-            String usuarioActual = "usuario3"; // Usuario actual
-            String timestamp = String.valueOf(System.currentTimeMillis());
+        // Obtener el número de mensajes existentes para generar el ID
+        mensajesRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful() && task.getResult().exists()) {
+                DataSnapshot snapshot = task.getResult();
+                int mensajeCount = (int) snapshot.getChildrenCount(); // Contar los mensajes existentes
+                String mensajeId = "mensaje" + (mensajeCount + 1); // Generar el nuevo ID
 
-            Message nuevoMensaje = new Message(usuarioActual, mensaje, timestamp);
-            mensajesRef.child(mensajeId).setValue(nuevoMensaje).addOnCompleteListener(task -> {
-                if (task.isSuccessful()) {
-                    Toast.makeText(getContext(), "Mensaje enviado", Toast.LENGTH_SHORT).show();
-                    botonPresionado.setEnabled(false); // Deshabilitar el botón presionado
-                    botonDeshabilitar.setEnabled(false); // Deshabilitar el otro botón
-                } else {
-                    Toast.makeText(getContext(), "Error al enviar mensaje", Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
+                String usuarioActual = "usuario3"; // Usuario actual
+                String timestamp = String.valueOf(System.currentTimeMillis());
+
+                // Crear el objeto con los campos correctos
+                Map<String, Object> nuevoMensaje = new HashMap<>();
+                nuevoMensaje.put("de", usuarioActual);
+                nuevoMensaje.put("mensaje", mensaje);
+                nuevoMensaje.put("timestamp", timestamp);
+
+                // Guardar el mensaje en Firebase
+                mensajesRef.child(mensajeId).setValue(nuevoMensaje).addOnCompleteListener(task1 -> {
+                    if (task1.isSuccessful()) {
+                        Toast.makeText(getContext(), "Mensaje enviado", Toast.LENGTH_SHORT).show();
+                        botonPresionado.setEnabled(false); // Deshabilitar el botón presionado
+                        botonDeshabilitar.setEnabled(false); // Deshabilitar el otro botón
+                    } else {
+                        Toast.makeText(getContext(), "Error al enviar mensaje", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            } else {
+                Toast.makeText(getContext(), "Error al obtener mensajes existentes", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
