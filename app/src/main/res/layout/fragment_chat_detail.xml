@@ -4,16 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/naranjaPalido"
+    android:background="@color/naranjaBlanco"
     tools:context=".ChatDetailFragment">
 
+    <!-- Encabezado -->
     <LinearLayout
-        android:id="@+id/productInfoContainer"
+        android:id="@+id/headerContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@color/naranjaBlanco">
+        android:background="@color/naranjaClaro"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             android:id="@+id/tvProductName"
@@ -21,56 +25,37 @@
             android:layout_height="wrap_content"
             android:text="Nombre del producto"
             android:textStyle="bold"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/tvProductDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Descripción del producto"
-            android:layout_marginTop="8dp" />
+            android:textSize="18sp"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/tvProductPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Precio: $0"
-            android:layout_marginTop="8dp" />
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="4dp" />
 
         <TextView
             android:id="@+id/tvSellerInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Vendedor: ID - Nombre"
-            android:textColor="@color/cafe" />
+            android:textSize="14sp"
+            android:textColor="@color/cafe"
+            android:layout_marginTop="4dp" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tvChatTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Título del Chat"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:paddingBottom="8dp" />
-
+    <!-- Lista de mensajes -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMessages"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="16dp" />
-
-    <ListView
-        android:id="@+id/listViewMessages"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/productInfoContainer"
-        app:layout_constraintBottom_toTopOf="@id/buttonContainer"
+        app:layout_constraintTop_toBottomOf="@id/headerContainer"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="8dp"
         android:padding="8dp" />
 
     <LinearLayout

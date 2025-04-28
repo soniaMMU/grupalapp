@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
+    <color name="black">#FF0000</color> <!-- Negro -->
     <color name="white">#FFFFFFFF</color>
     <color name="purple_500">#6C3BAA</color>
 
     <!-- Paleta de colores -->
-    <color name="naranjaBlanco">#FEF3E2</color>
+    <color name="naranjaBlanco">#FFF3E0</color> <!-- Un tono muy claro de naranja -->
     <color name="amarilloClaro">#FCF596</color>
     <color name="naranjaPalido">#FBD288</color>
     <color name="naranjaMelon">#FF9C73</color>
@@ -13,5 +13,6 @@
     <color name="naranjaVivo">#FAB12F</color>
     <color name="naranja">#FA812F</color>
     <color name="naranjaFuego">#FA4032</color>
-    <color name="cafe">#343131</color>
+    <color name="cafe">#795548</color> <!-- Un tono marrón -->
+    <color name="naranjaClaro">#FFE0B2</color> <!-- Un tono claro de naranja -->
 </resources>
